@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monster Hypervideo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-grid" aria-label="Hipervideo publicitario Monster">
+        <aside class="copy-panel">
+          <p class="eyebrow">Hypervideo interativo</p>
+          <img class="product-logo" src="monster logo.webp" alt="Logo da Monster Energy" />
+          <p class="intro">
+            Explore o produto durante o video. Quando os pontos aparecerem,
+            clique para ver detalhes, beneficios e estatísticas.
+          </p>
+
+          <div class="product-strip" aria-label="Destaques do produto">
+            <button class="strip-item is-active" type="button" data-jump="0">
+              <span>01</span>
+              Abertura cinematica
+            </button>
+            <button class="strip-item" type="button" data-jump="1">
+              <span>02</span>
+              Produto em destaque
+            </button>
+            <button class="strip-item" type="button" data-jump="2">
+              <span>03</span>
+              Ritual de consumo
+            </button>
+            <button class="strip-item" type="button" data-jump="3">
+              <span>04</span>
+              Prova social
+            </button>
+            <button class="strip-item" type="button" data-jump="4">
+              <span>05</span>
+              Chamada final
+            </button>
+          </div>
+
+          <div class="offer-box">
+            <span class="offer-label">Oferta da campanha</span>
+            <strong>Leve energia gelada para agora.</strong>
+            <a class="primary-cta" href="#comprar" id="sideCta">Comprar produto</a>
+          </div>
+        </aside>
+
+        <section class="video-stage">
+          <div class="video-frame">
+            <video
+              id="adVideo"
+              class="ad-video"
+              src="capcut%20cenes/0426(1)/0426(1)-1.mp4"
+              preload="metadata"
+              playsinline
+              muted
+            ></video>
+
+            <div class="video-vignette" aria-hidden="true"></div>
+            <div class="hotspot-layer" id="hotspotLayer" aria-live="polite"></div>
+
+            <div class="topbar">
+              <div>
+                <span class="status-dot"></span>
+                <span id="sceneLabel">Cena 01</span>
+              </div>
+              <span id="timeLabel">00:00</span>
+            </div>
+
+            <div class="control-bar">
+              <button class="icon-button" type="button" id="prevScene" aria-label="Cena anterior">
+                <span aria-hidden="true">&lsaquo;</span>
+              </button>
+              <button class="play-button" type="button" id="playToggle">Reproduzir</button>
+              <button class="icon-button" type="button" id="nextScene" aria-label="Proxima cena">
+                <span aria-hidden="true">&rsaquo;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="external-progress" aria-label="Progresso do video">
+            <div class="progress-track" aria-hidden="true">
+              <span id="progressFill"></span>
+            </div>
+          </div>
+
+          <div class="scene-rail" id="sceneRail" aria-label="Cenas do hipervideo"></div>
+        </section>
+      </section>
+    </main>
+
+    <section class="purchase-band" id="comprar">
+      <div>
+        <p class="eyebrow">Chamada final</p>
+        <h2>Monster Energy pronto para entrar no carrinho.</h2>
+      </div>
+      <a class="primary-cta dark" href="https://www.monsterenergy.com/" target="_blank" rel="noreferrer">
+        Comprar agora
+      </a>
+    </section>
+
+    <footer class="site-footer">
+      <p>Creditos de imagens: Nano Banana 2.</p>
+      <p>Creditos de videos: Meta AI.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
