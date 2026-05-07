@@ -23,6 +23,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 78% 16%, rgba(143, 186, 61, 0.18), transparent 32rem),
     linear-gradient(135deg, #10110f 0%, #171914 54%, #0f120d 100%);
@@ -80,8 +81,8 @@ button {
   right: -78px;
   bottom: -520px;
   z-index: 0;
-  width: clamp(280px, 38vw, 520px);
-  max-width: calc(100vw + 120px);
+  width: min(38vw, 520px);
+  min-width: 1600px;
   opacity: 0.18;
   transform: rotate(-10deg);
   filter: saturate(0.85) contrast(1.08);
@@ -650,6 +651,7 @@ h1 {
     right: -72px;
     bottom: -300px;
     width: min(58vw, 360px);
+    min-width: 980px;
     opacity: 0.12;
   }
 
