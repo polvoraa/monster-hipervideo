@@ -1,4 +1,4 @@
-# Monster Hypervideo
+# Monster Hipervideo
 
 Este projeto é uma página de publicidade interativa para Monster Energy. A ideia é simular um **hypervideo**: enquanto o vídeo passa, aparecem pontos clicáveis na tela. Quando o usuário clica em um ponto, abre um card com informações do produto, oferta ou chamada de compra.
 
