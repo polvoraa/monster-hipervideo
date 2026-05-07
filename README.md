@@ -168,6 +168,4 @@ texto: "Texto que aparece dentro do card.",
 botao: "Comparar sabores"
 ```
 
-## Resumo para explicar na apresentação
 
-O projeto é um site feito com HTML, CSS e JavaScript puro. O HTML cria a estrutura da página, o CSS define o visual e o JavaScript controla toda a interatividade. O array `cenas` guarda os dados de cada vídeo e de cada ponto clicável. Enquanto o vídeo roda, o JavaScript acompanha o tempo atual e mostra os pontos no momento certo. Quando o usuário clica em um ponto, aparece um card com informações e o vídeo fica mais lento para facilitar a leitura. Os botões laterais e inferiores chamam a função `carregarCena()`, que troca o vídeo atual e atualiza a interface.
