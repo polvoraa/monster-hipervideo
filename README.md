@@ -7,8 +7,8 @@ Este projeto é uma página de publicidade interativa para Monster Energy. A ide
 - `index.html`: monta a estrutura da página.
 - `styles.css`: cuida do visual, layout, responsividade, animações e aparência dos cards.
 - `script.js`: controla as cenas do vídeo, os botões, a barra de progresso e os pontos clicáveis.
-- `capcut cenes/0426(1)/`: pasta com os vídeos usados em cada cena.
-- `monster logo.webp`: logo exibido no painel lateral.
+- `videos/`: pasta com os vídeos usados em cada cena.
+- `images/monster-logo.webp`: logo exibido no painel lateral.
 - `images/raissa.webp`: imagem decorativa de fundo.
 
 ## Como abrir
@@ -43,7 +43,7 @@ Exemplo simplificado:
 
 ```js
 {
-  arquivo: "capcut cenes/0426(1)/0426(1)-1.mp4",
+  arquivo: "videos/scene-1.mp4",
   nome: "Cena 01",
   titulo: "Vantagens",
   pontos: [
@@ -141,7 +141,7 @@ titulo: "Preço e sabores"
 Para trocar o vídeo, altere:
 
 ```js
-arquivo: "capcut cenes/0426(1)/0426(1)-2.mp4"
+arquivo: "videos/scene-2.mp4"
 ```
 
 ## Como alterar um ponto

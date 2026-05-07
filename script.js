@@ -2,7 +2,7 @@
 // Para alterar o conteúdo do projeto, normalmente basta editar estes dados.
 const cenas = [
   {
-    arquivo: "capcut cenes/0426(1)/0426(1)-1.mp4",
+    arquivo: "videos/scene-1.mp4",
     nome: "Cena 01",
     titulo: "Vantagens",
     pontos: [
@@ -27,7 +27,7 @@ const cenas = [
     ],
   },
   {
-    arquivo: "capcut cenes/0426(1)/0426(1)-2.mp4",
+    arquivo: "videos/scene-2.mp4",
     nome: "Cena 02",
     titulo: "Preço e sabores",
     pontos: [
@@ -54,7 +54,7 @@ const cenas = [
     ],
   },
   {
-    arquivo: "capcut cenes/0426(1)/0426(1)-3.mp4",
+    arquivo: "videos/scene-3.mp4",
     nome: "Cena 03",
     titulo: "Ritual",
     pontos: [
@@ -72,7 +72,7 @@ const cenas = [
     ],
   },
   {
-    arquivo: "capcut cenes/0426(1)/0426(1)-4.mp4",
+    arquivo: "videos/scene-4.mp4",
     nome: "Cena 04",
     titulo: "Prova social",
     pontos: [
@@ -89,7 +89,7 @@ const cenas = [
     ],
   },
   {
-    arquivo: "capcut cenes/0426(1)/0426(1)-5.mp4",
+    arquivo: "videos/scene-5.mp4",
     nome: "Cena 05",
     titulo: "Chamada final",
     pontos: [
