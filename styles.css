@@ -1,5 +1,7 @@
 :root {
   color-scheme: dark;
+
+  /* Cores principais do tema Monster. */
   --bg: #10110f;
   --panel: #171914;
   --ink: #f4f5ef;
@@ -42,19 +44,21 @@ button {
   cursor: pointer;
 }
 
-.product-logo{
-  width: 460px;
+.logo {
+  width: min(100%, 460px);
   height: auto;
 }
 
-.app-shell {
+/* Estrutura principal da página. */
+.pagina {
   width: min(100%, 1480px);
   min-height: 100dvh;
   margin: 0 auto;
   padding: clamp(16px, 3vw, 42px);
 }
 
-.hero-grid {
+.principal {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.42fr);
   gap: clamp(18px, 4vw, 58px);
@@ -62,15 +66,31 @@ button {
   min-height: calc(100dvh - 84px);
 }
 
-.copy-panel {
+.painel {
+  position: relative;
+  z-index: 1;
   display: grid;
   align-content: center;
   gap: 22px;
   max-width: 520px;
 }
 
-.eyebrow,
-.offer-label {
+.imagem-fundo {
+  position: absolute;
+  right: -78px;
+  bottom: -520px;
+  z-index: 0;
+  width: min(38vw, 520px);
+  min-width: 1600px;
+  opacity: 0.18;
+  transform: rotate(-10deg);
+  filter: saturate(0.85) contrast(1.08);
+  pointer-events: none;
+  user-select: none;
+}
+
+.legenda,
+.legenda-oferta {
   margin: 0;
   color: var(--accent-strong);
   font-size: 0.76rem;
@@ -99,13 +119,14 @@ h1 {
   max-width: 46ch;
 }
 
-.product-strip {
+/* Lista lateral de cenas. */
+.lista-cenas {
   display: grid;
   gap: 8px;
   margin-top: 8px;
 }
 
-.strip-item {
+.botao-cena {
   display: grid;
   grid-template-columns: 42px 1fr;
   align-items: center;
@@ -121,28 +142,29 @@ h1 {
     background 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.strip-item span {
+.botao-cena span {
   color: var(--accent-strong);
   font-size: 0.78rem;
   font-weight: 800;
   text-align: center;
 }
 
-.strip-item:hover,
-.strip-item.is-active {
+.botao-cena:hover,
+.botao-cena.ativo {
   border-color: rgba(183, 217, 90, 0.56);
   background: rgba(143, 186, 61, 0.12);
   transform: translateX(4px);
 }
 
-.strip-item:active,
-.primary-cta:active,
-.play-button:active,
-.icon-button:active {
+.botao-cena:active,
+.botao-compra:active,
+.botao-play:active,
+.botao-icone:active {
   transform: translateY(1px) scale(0.99);
 }
 
-.offer-box {
+/* Card de oferta no painel lateral. */
+.oferta {
   display: grid;
   gap: 12px;
   width: min(100%, 380px);
@@ -153,12 +175,12 @@ h1 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.offer-box strong {
+.oferta strong {
   font-size: 1.18rem;
   line-height: 1.25;
 }
 
-.primary-cta {
+.botao-compra {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -176,16 +198,19 @@ h1 {
     filter 180ms ease;
 }
 
-.primary-cta:hover {
+.botao-compra:hover {
   filter: brightness(1.08);
 }
 
-.video-stage {
+/* Área do vídeo e controles. */
+.area-video {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 14px;
 }
 
-.video-frame {
+.caixa-video {
   position: relative;
   overflow: hidden;
   min-height: 440px;
@@ -198,7 +223,7 @@ h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.ad-video {
+.video {
   width: 100%;
   height: 100%;
   display: block;
@@ -212,13 +237,13 @@ h1 {
     filter 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ad-video.is-transitioning {
+.video.trocando {
   opacity: 0.12;
   transform: scale(1.018);
   filter: blur(8px) saturate(0.82);
 }
 
-.video-vignette {
+.sombra-video {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -227,8 +252,8 @@ h1 {
     linear-gradient(90deg, rgba(16, 17, 15, 0.18), transparent 38%);
 }
 
-.topbar,
-.control-bar {
+.topo-video,
+.controles {
   position: absolute;
   left: 16px;
   right: 16px;
@@ -238,20 +263,20 @@ h1 {
   color: var(--ink);
 }
 
-.topbar {
+.topo-video {
   top: 14px;
   justify-content: space-between;
   font-size: 0.86rem;
   font-weight: 800;
 }
 
-.topbar > div {
+.topo-video > div {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-.status-dot {
+.ponto-status {
   width: 9px;
   height: 9px;
   border-radius: 999px;
@@ -260,13 +285,13 @@ h1 {
   animation: pulse 1.8s ease-in-out infinite;
 }
 
-.control-bar {
+.controles {
   bottom: 14px;
   right: auto;
 }
 
-.icon-button,
-.play-button {
+.botao-icone,
+.botao-play {
   min-width: 42px;
   min-height: 42px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -277,17 +302,17 @@ h1 {
   backdrop-filter: blur(16px);
 }
 
-.icon-button {
+.botao-icone {
   font-size: 2rem;
   line-height: 1;
 }
 
-.play-button {
+.botao-play {
   padding: 0 18px;
   font-weight: 850;
 }
 
-.progress-track {
+.barra-progresso {
   position: relative;
   height: 7px;
   overflow: hidden;
@@ -295,16 +320,16 @@ h1 {
   background: rgba(255, 255, 255, 0.18);
 }
 
-.external-progress {
+.progresso {
   padding: 2px 2px 0;
 }
 
-.external-progress .progress-track {
+.progresso .barra-progresso {
   width: 100%;
   background: rgba(244, 245, 239, 0.12);
 }
 
-.progress-track span {
+.barra-progresso span {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0%;
@@ -312,13 +337,14 @@ h1 {
   background: var(--accent-strong);
 }
 
-.hotspot-layer {
+/* Camada onde o JavaScript coloca os pontos clicáveis. */
+.camada-pontos {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.hotspot {
+.ponto {
   position: absolute;
   left: var(--x);
   top: var(--y);
@@ -326,10 +352,10 @@ h1 {
   color: var(--ink);
   pointer-events: auto;
   transform: translate(-50%, -50%);
-  animation: hotspotIn 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: pontoEntrando 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hotspot-trigger {
+.botao-ponto {
   display: grid;
   grid-template-columns: 22px max-content;
   align-items: center;
@@ -339,11 +365,11 @@ h1 {
   color: inherit;
 }
 
-.hotspot.is-left .hotspot-trigger {
+.ponto.esquerda .botao-ponto {
   grid-template-columns: max-content 22px;
 }
 
-.hotspot-trigger::before {
+.botao-ponto::before {
   content: "";
   width: 22px;
   height: 22px;
@@ -355,12 +381,12 @@ h1 {
     0 8px 24px rgba(0, 0, 0, 0.42);
 }
 
-.hotspot.is-left .hotspot-trigger::before {
+.ponto.esquerda .botao-ponto::before {
   grid-column: 2;
   grid-row: 1;
 }
 
-.hotspot-trigger span {
+.botao-ponto span {
   max-width: 190px;
   padding: 8px 10px;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -373,12 +399,13 @@ h1 {
   backdrop-filter: blur(14px);
 }
 
-.hotspot.is-left .hotspot-trigger span {
+.ponto.esquerda .botao-ponto span {
   grid-column: 1;
   grid-row: 1;
 }
 
-.hotspot-card {
+/* Card que aparece depois do clique em um ponto. */
+.card-ponto {
   position: absolute;
   left: 28px;
   top: 36px;
@@ -395,10 +422,10 @@ h1 {
     0 24px 50px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(18px);
-  animation: hotspotIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: pontoEntrando 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hotspot-close {
+.fechar-ponto {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -417,15 +444,15 @@ h1 {
     background 180ms ease;
 }
 
-.hotspot-close:hover {
+.fechar-ponto:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-.hotspot-close:active {
+.fechar-ponto:active {
   transform: scale(0.95);
 }
 
-.hotspot-card small {
+.card-ponto small {
   padding-right: 34px;
   color: var(--accent-strong);
   font-size: 0.68rem;
@@ -434,20 +461,20 @@ h1 {
   text-transform: uppercase;
 }
 
-.hotspot-card h3 {
+.card-ponto h3 {
   margin: 0;
   font-size: 1.18rem;
   line-height: 1.05;
   letter-spacing: -0.025em;
 }
 
-.hotspot-card p {
+.card-ponto p {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.45;
 }
 
-.hotspot-card a {
+.card-ponto a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -462,7 +489,8 @@ h1 {
   text-decoration: none;
 }
 
-.nutrition-card {
+/* Rótulo de informações usado no primeiro ponto. */
+.rotulo {
   display: grid;
   gap: 0;
   margin: 2px 0;
@@ -471,7 +499,7 @@ h1 {
   color: #10110f;
 }
 
-.nutrition-card strong {
+.rotulo strong {
   padding: 8px 10px;
   border-bottom: 5px solid #10110f;
   font-size: 1rem;
@@ -479,7 +507,7 @@ h1 {
   letter-spacing: -0.02em;
 }
 
-.nutrition-card div {
+.rotulo div {
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -488,21 +516,22 @@ h1 {
   font-size: 0.78rem;
 }
 
-.nutrition-card div:last-child {
+.rotulo div:last-child {
   border-bottom: 0;
 }
 
-.nutrition-card b {
+.rotulo b {
   text-align: right;
 }
 
-.scene-rail {
+/* Botões inferiores com todas as cenas. */
+.cenas-baixo {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
 }
 
-.scene-button {
+.botao-cena-baixo {
   min-height: 66px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -517,7 +546,7 @@ h1 {
     color 220ms ease;
 }
 
-.scene-button small {
+.botao-cena-baixo small {
   display: block;
   margin-bottom: 6px;
   color: var(--accent-strong);
@@ -526,14 +555,15 @@ h1 {
   text-transform: uppercase;
 }
 
-.scene-button:hover,
-.scene-button.is-active {
+.botao-cena-baixo:hover,
+.botao-cena-baixo.ativo {
   color: var(--ink);
   border-color: rgba(183, 217, 90, 0.56);
   transform: translateY(-2px);
 }
 
-.purchase-band {
+/* Chamada final de compra. */
+.compra {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -546,25 +576,26 @@ h1 {
   color: #10110f;
 }
 
-.purchase-band h2 {
+.compra h2 {
   max-width: 760px;
   font-size: clamp(1.7rem, 4vw, 3.6rem);
   line-height: 0.98;
   letter-spacing: -0.05em;
 }
 
-.purchase-band .eyebrow {
+.compra .legenda {
   margin-bottom: 10px;
   color: #58751d;
 }
 
-.primary-cta.dark {
+.botao-compra.escuro {
   background: #141712;
   color: var(--ink);
   border-color: #141712;
 }
 
-.site-footer {
+/* Créditos. */
+.rodape {
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -577,10 +608,11 @@ h1 {
   font-size: 0.82rem;
 }
 
-.site-footer p {
+.rodape p {
   margin: 0;
 }
 
+/* Animações curtas usadas nos pontos e no indicador de status. */
 @keyframes pulse {
   0%,
   100% {
@@ -593,7 +625,7 @@ h1 {
   }
 }
 
-@keyframes hotspotIn {
+@keyframes pontoEntrando {
   from {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.84);
@@ -605,30 +637,37 @@ h1 {
 }
 
 @media (max-width: 980px) {
-  .hero-grid {
+  .principal {
     grid-template-columns: 1fr;
     min-height: auto;
   }
 
-  .copy-panel {
+  .painel {
     max-width: none;
+  }
+
+  .imagem-fundo {
+    right: -72px;
+    bottom: -300px;
+    width: min(58vw, 360px);
+    opacity: 0.12;
   }
 
   h1 {
     max-width: 10ch;
   }
 
-  .video-frame {
+  .caixa-video {
     min-height: 300px;
   }
 
-  .scene-rail {
+  .cenas-baixo {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 640px) {
-  .app-shell {
+  .pagina {
     padding: 14px;
   }
 
@@ -636,42 +675,42 @@ h1 {
     font-size: clamp(2.4rem, 15vw, 4.8rem);
   }
 
-  .video-frame {
+  .caixa-video {
     min-height: 390px;
     aspect-ratio: 9 / 14;
   }
 
-  .control-bar {
+  .controles {
     flex-wrap: wrap;
   }
 
-  .hotspot {
+  .ponto {
     max-width: calc(100vw - 28px);
   }
 
-  .hotspot-trigger {
+  .botao-ponto {
     grid-template-columns: 22px minmax(96px, 150px);
   }
 
-  .hotspot.is-left .hotspot-trigger {
+  .ponto.esquerda .botao-ponto {
     grid-template-columns: minmax(96px, 150px) 22px;
   }
 
-  .hotspot-trigger span {
+  .botao-ponto span {
     max-width: 150px;
   }
 
-  .hotspot-card {
+  .card-ponto {
     left: 0;
     top: 42px;
     width: min(280px, calc(100vw - 28px));
   }
 
-  .scene-rail {
+  .cenas-baixo {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .purchase-band {
+  .compra {
     align-items: flex-start;
     flex-direction: column;
   }
